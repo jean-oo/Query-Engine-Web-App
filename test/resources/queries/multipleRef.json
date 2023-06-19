@@ -1,0 +1,19 @@
+{
+  "title": "references a dataset not added",
+  "input": {
+    "WHERE": {
+      "GT": {
+        "cc_avg": 99
+      }
+    },
+    "OPTIONS": {
+      "COLUMNS": [
+        "courses_dept",
+        "cc_avg"
+      ],
+      "ORDER": "cc_avg"
+    }
+  },
+  "errorExpected": true,
+  "expected": "InsightError"
+}

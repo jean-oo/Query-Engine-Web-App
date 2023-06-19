@@ -1,0 +1,18 @@
+{
+	"title": "Where-- invalid query",
+	"input": {
+		"WHERE": {
+			"GT": {
+				"overallAvg": 97
+			}
+		},
+		"OPTIONS": {
+			"COLUMNS": [
+				"courses_abc",
+				"courses_avg"
+			]
+		}
+	},
+	"errorExpected": true,
+	"expected": "InsightError"
+}

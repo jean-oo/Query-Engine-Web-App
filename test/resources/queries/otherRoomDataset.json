@@ -1,0 +1,71 @@
+{
+	"title": "dataset ID is r1 ",
+	"input": {
+
+		"WHERE": {
+
+			"AND": [{
+
+				"IS": {
+
+					"r1_furniture": "*Tables*"
+
+				}
+
+			}, {
+
+				"GT": {
+
+					"r1_seats": 300
+
+				}
+
+			}]
+
+		},
+
+		"OPTIONS": {
+
+			"COLUMNS": [
+
+				"r1_shortname",
+
+				"maxSeats"
+
+			],
+
+			"ORDER": {
+
+				"dir": "DOWN",
+
+				"keys": ["maxSeats"]
+
+			}
+
+		},
+
+		"TRANSFORMATIONS": {
+
+			"GROUP": ["r1_shortname"],
+
+			"APPLY": [{
+
+				"maxSeats": {
+
+					"MAX": "r1_seats"
+
+				}
+
+			}]
+
+		}
+
+	},
+	"errorExpected": false,
+
+	"expected": [{"r1_shortname":"OSBO","maxSeats":442},
+		{"r1_shortname":"HEBB","maxSeats":375},
+		{"r1_shortname":"LSC","maxSeats":350}
+	]
+}
+

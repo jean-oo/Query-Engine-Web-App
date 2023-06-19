@@ -1,0 +1,47 @@
+{
+  "title": "courses with TRANS and ORDER, but applyKey has '_'",
+  "input": {
+	  "WHERE": {
+		  "AND": [
+			  {
+				  "GT": {
+					  "courses_avg": 95
+				  }
+			  },
+			  {
+				  "IS": {
+					  "courses_dept": "*c*"
+				  }
+			  }
+		  ]
+	  },
+	  "OPTIONS": {
+		  "COLUMNS": [
+			  "courses_title",
+			  "overall_Avg"
+		  ],
+		  "ORDER": {
+			  "dir": "DOWN",
+			  "keys": [
+				  "overallAvg"
+			  ]
+		  }
+	  },
+	  "TRANSFORMATIONS": {
+		  "GROUP": [
+			  "courses_title"
+		  ],
+		  "APPLY": [
+			  {
+				  "overall_Avg": {
+					  "AVG": "courses_avg"
+				  }
+			  }
+		  ]
+	  }
+  },
+  "errorExpected": true,
+
+  "expected": "InsightError"
+}
+

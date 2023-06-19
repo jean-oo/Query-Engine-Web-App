@@ -1,0 +1,19 @@
+{
+  "title": "Write String in Avg",
+  "input": {
+    "WHERE": {
+      "GT": {
+        "cc_avg": "carol"
+      }
+    },
+    "OPTIONS": {
+      "COLUMNS": [
+        "cc_dept",
+        "cc_avg"
+      ],
+      "ORDER": "cc_avg"
+    }
+  },
+  "errorExpected": true,
+  "expected": "InsightError"
+}

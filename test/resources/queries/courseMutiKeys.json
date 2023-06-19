@@ -1,0 +1,79 @@
+{
+  "title": "test apply rule",
+  "input": {
+	  "WHERE": {
+		  "AND": [
+			  {
+				  "GT": {
+					  "courses_avg": 97
+				  }
+			  },
+			  {
+				  "IS": {
+					  "courses_dept": "*a*"
+				  }
+			  }
+		  ]
+	  },
+	  "OPTIONS": {
+		  "COLUMNS": [
+			  "courses_title",
+			  "overallAvg",
+			  "maxAvg",
+			  "courses_dept",
+			  "afterCount"
+		  ],
+		  "ORDER": {
+			  "dir": "UP",
+			  "keys": [
+				  "overallAvg",
+				  "courses_dept",
+				  "afterCount"
+			  ]
+		  }
+	  },
+	  "TRANSFORMATIONS": {
+		  "GROUP": [
+			  "courses_dept",
+			  "courses_title",
+			  "courses_year"
+		  ],
+		  "APPLY": [
+			  {
+				  "overallAvg": {
+					  "AVG": "courses_avg"
+				  }
+			  },
+			  {
+				  "maxAvg": {
+					  "MAX": "courses_avg"
+				  }
+			  },
+			  {
+				  "afterCount": {
+					  "COUNT": "courses_avg"
+				  }
+			  }
+		  ]
+	  }
+  },
+  "errorExpected": false,
+  "expected":  [{"courses_title":"harmonic anal i",
+	  "overallAvg":97.09,"maxAvg": 97.09,"courses_dept":"math","afterCount": 1},
+	  {"courses_title":"harmonic anal i",
+		  "overallAvg":97.09,"maxAvg": 97.09,"courses_dept":"math","afterCount": 1},
+	  {"courses_title":"diff geometry i",
+		  "overallAvg":97.25,"maxAvg": 97.25,"courses_dept":"math","afterCount": 1},
+	  {"courses_title":"diff geometry i",
+		  "overallAvg":97.25,"maxAvg": 97.25,"courses_dept":"math","afterCount": 1},
+	  {"courses_title":"algb geometry i",
+		  "overallAvg":97.48,"maxAvg": 97.48,"courses_dept":"math","afterCount": 1},
+	  {"courses_title":"algb geometry i",
+		  "overallAvg":97.48,"maxAvg": 97.48,"courses_dept":"math","afterCount": 1},
+	  {"courses_title":"algb topology i",
+		  "overallAvg":99.78,"maxAvg": 99.78,"courses_dept":"math","afterCount": 1},
+	  {"courses_title":"algb topology i",
+		  "overallAvg":99.78,"maxAvg": 99.78,"courses_dept":"math","afterCount": 1}
+  ]
+}
+

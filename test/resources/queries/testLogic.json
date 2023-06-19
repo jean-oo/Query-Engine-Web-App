@@ -1,0 +1,25 @@
+{
+  "title": "test logic",
+  "input": {
+    "WHERE": {
+      "AND":[{"GT": {
+        "courses_avg": 99
+      }}
+        ,{
+          "LT": {
+            "courses_avg": 92
+          }
+        }
+        ]
+    },
+    "OPTIONS": {
+      "COLUMNS": [
+        "courses_dept",
+        "courses_avg"
+      ],
+      "ORDER": "courses_avg"
+    }
+  },
+  "errorExpected": false,
+  "expected": []
+}

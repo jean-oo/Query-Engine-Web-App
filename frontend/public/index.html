@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+	<title>310 Frontend</title>
+	<link href="/style.css" rel="stylesheet" />
+</head>
+<body>
+
+<h1>View Grades</h1>
+<label for="year" class="form-label">YEAR</label>
+<input type="text" class="form-control " id="year" placeholder="2022" name="year">
+
+<label for="subject" class="form-label">SUBJECT</label>
+<input type="text" class="form-control " id="subject" placeholder="cpsc" name="subject">
+
+<label for="course-number" class="form-label">COURSE NUMBER</label>
+<input type="number" class="form-control " id="course-number" placeholder="310" name="course-number">
+<button id="search-button" type="submit"  value="search-button">Search </button>
+<div>
+	<h3>View Grade Result</h3>
+   <div id="error">Hi</div>
+	<table id="viewGradeResult" broder=1>
+		<!--<tr>
+			<td><font id = "ins">Instructor:</font></td>
+			<td><font id = "avg">Average:</font></td>
+		</tr>
+		-->
+	</table>
+	<!-- <label for="max-avg" class="form-label">MAX AVG</label> -->
+	<div  id="max-avg"  name="max-avg"></div>
+	<!-- <label for="min-avg" class="form-label">MIN AVG</label>-->
+	<div  id="min-avg"  name="min-avg"></div>
+
+</div>
+</body>
+
+<body>
+<h1>Statistics by Course</h1>
+
+<label for="subject2" class="form-label">SUBJECT</label>
+<input type="text" class="form-control " id="subject2" placeholder="cpsc" name="subject">
+
+<label for="course-number2" class="form-label">COURSE NUMBER</label>
+<input type="number" class="form-control " id="course-number2" placeholder="310" name="course-number">
+
+<button id="search-button2" type="submit"  value="search-button">Search </button>
+<h3>Statistics by Course Result</h3>
+<div id="error2">Hi</div>
+<table id="viewGradeResult2" broder=1>
+	<!-- <tr>
+		<td><font id = "ins2">Year:</font></td>
+		<td><font id = "avg2">Average:</font></td>
+	</tr>
+	-->
+</table>
+</body>
+<script type="text/javascript" src="/frontend.js"  ></script>
+</html>

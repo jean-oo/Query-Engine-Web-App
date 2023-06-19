@@ -1,0 +1,19 @@
+{
+  "title": "invalid Logic",
+  "input": {
+    "WHERE": {
+      "carol": {
+        "overallAvg": 100
+      }
+    },
+    "OPTIONS": {
+      "COLUMNS": [
+        "courses_dept",
+        "courses_avg"
+      ],
+      "ORDER": "courses_avg"
+    }
+  },
+  "errorExpected": true,
+  "expected": "InsightError"
+}

@@ -1,0 +1,72 @@
+{
+  "title": "test AVG,MIN,MAX,COUNT, ORDER",
+  "input": {
+	  "WHERE": {
+		  "AND": [
+			  {
+				  "IS": {
+					  "courses_dept": "cogs"
+				  }
+			  },
+			  {
+				  "GT": {
+					  "courses_fail": 3
+				  }
+			  },
+			  {
+				  "GT": {
+					  "courses_year": 2014
+				  }
+			  }
+		  ]
+	  },
+	  "OPTIONS": {
+		  "COLUMNS": [
+			  "courses_dept",
+			  "minAvg",
+			  "overallAvg",
+			  "maxAvg",
+			  "countAvg"
+		  ],
+		  "ORDER": {
+			  "dir": "DOWN",
+			  "keys": [
+				  "maxAvg",
+				  "countAvg"
+
+			  ]
+		  }
+	  },
+	  "TRANSFORMATIONS": {
+		  "GROUP": [
+			  "courses_dept"
+		  ],
+		  "APPLY": [
+			  {
+				  "minAvg": {
+					  "MIN": "courses_avg"
+				  }
+			  },
+			  {
+				  "overallAvg": {
+					  "AVG": "courses_avg"
+				  }
+			  },
+			  {
+				  "maxAvg": {
+					  "MAX": "courses_avg"
+				  }
+			  },
+			  {
+				  "countAvg": {
+					  "COUNT": "courses_avg"
+				  }
+			  }
+		  ]
+	  }
+  },
+  "errorExpected": false,
+
+  "expected": [{"courses_dept":"cogs","minAvg":70.53,"overallAvg":70.67,"maxAvg":70.8,"countAvg":2}]}
+
+

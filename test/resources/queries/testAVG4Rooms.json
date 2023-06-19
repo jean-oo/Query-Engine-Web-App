@@ -1,0 +1,65 @@
+{
+  "title": "test AVG,MIN,MAX,COUNT, ORDER with ROOM dataset",
+  "input": {
+	  "WHERE": {
+		  "AND": [
+			  {
+				  "IS": {
+					  "rooms_furniture": "*Tables*"
+				  }
+			  },
+			  {
+				  "GT": {
+					  "rooms_seats": 10
+				  }
+			  }
+		  ]
+	  },
+	  "OPTIONS": {
+		  "COLUMNS": [
+			  "rooms_shortname",
+			  "minLon",
+			  "avgLon",
+			  "maxLat",
+			  "countLon"
+		  ],
+		  "ORDER": {
+			  "dir": "DOWN",
+			  "keys": [
+				  "maxLat",
+				  "countLon"
+			  ]
+		  }
+	  },
+	  "TRANSFORMATIONS": {
+		  "GROUP": [
+			  "rooms_shortname"
+		  ],
+		  "APPLY": [
+			  {
+				  "maxLat": {
+					  "MAX": "rooms_lat"
+				  }
+			  },
+			  {
+				  "minLon": {
+					  "MIN": "rooms_lon"
+				  }
+			  },
+			  {
+				  "avgLon": {
+					  "AVG": "rooms_lon"
+				  }
+			  },
+			  {
+				  "countLon": {
+					  "COUNT": "rooms_lon"
+				  }
+			  }
+		  ]
+	  }
+  },
+  "errorExpected": false,
+
+  "expected": [{"rooms_shortname":"IONA","minLon":-123.25042,"avgLon":-123.25,"maxLat":49.27106,"countLon":1},{"rooms_shortname":"ALRD","minLon":-123.25318,"avgLon":-123.25,"maxLat":49.2699,"countLon":1},{"rooms_shortname":"ANSO","minLon":-123.25741,"avgLon":-123.26,"maxLat":49.26958,"countLon":1},{"rooms_shortname":"UCLL","minLon":-123.25692,"avgLon":-123.26,"maxLat":49.26867,"countLon":1},{"rooms_shortname":"BRKX","minLon":-123.25237,"avgLon":-123.25,"maxLat":49.26862,"countLon":1},{"rooms_shortname":"SRC","minLon":-123.24894,"avgLon":-123.25,"maxLat":49.2683,"countLon":1},{"rooms_shortname":"BUCH","minLon":-123.25468,"avgLon":-123.25,"maxLat":49.26826,"countLon":1},{"rooms_shortname":"LASR","minLon":-123.25583,"avgLon":-123.26,"maxLat":49.26767,"countLon":1},{"rooms_shortname":"IBLC","minLon":-123.2521,"avgLon":-123.25,"maxLat":49.26766,"countLon":1},{"rooms_shortname":"AUDX","minLon":-123.25655,"avgLon":-123.26,"maxLat":49.2666,"countLon":1},{"rooms_shortname":"MATH","minLon":-123.255534,"avgLon":-123.26,"maxLat":49.266463,"countLon":1},{"rooms_shortname":"HENN","minLon":-123.25374,"avgLon":-123.25,"maxLat":49.26627,"countLon":1},{"rooms_shortname":"HEBB","minLon":-123.25165,"avgLon":-123.25,"maxLat":49.2661,"countLon":1},{"rooms_shortname":"GEOG","minLon":-123.25623,"avgLon":-123.26,"maxLat":49.26605,"countLon":1},{"rooms_shortname":"LSK","minLon":-123.25533,"avgLon":-123.26,"maxLat":49.26545,"countLon":1},{"rooms_shortname":"FRDM","minLon":-123.24608,"avgLon":-123.25,"maxLat":49.26541,"countLon":1},{"rooms_shortname":"ANGU","minLon":-123.25364,"avgLon":-123.25,"maxLat":49.26486,"countLon":1},{"rooms_shortname":"BIOL","minLon":-123.25249,"avgLon":-123.25,"maxLat":49.26479,"countLon":1},{"rooms_shortname":"WOOD","minLon":-123.24673,"avgLon":-123.25,"maxLat":49.26478,"countLon":1},{"rooms_shortname":"SOWK","minLon":-123.25505,"avgLon":-123.26,"maxLat":49.2643,"countLon":1},{"rooms_shortname":"SPPH","minLon":-123.24842,"avgLon":-123.25,"maxLat":49.2642,"countLon":1},{"rooms_shortname":"FNH","minLon":-123.24959,"avgLon":-123.25,"maxLat":49.26414,"countLon":1},{"rooms_shortname":"PCOH","minLon":-123.2559,"avgLon":-123.26,"maxLat":49.264,"countLon":1},{"rooms_shortname":"SCRF","minLon":-123.2531,"avgLon":-123.25,"maxLat":49.26398,"countLon":1},{"rooms_shortname":"SWNG","minLon":-123.25431,"avgLon":-123.25,"maxLat":49.26293,"countLon":1},{"rooms_shortname":"ESB","minLon":-123.25224,"avgLon":-123.25,"maxLat":49.26274,"countLon":1},{"rooms_shortname":"CEME","minLon":-123.24894,"avgLon":-123.25,"maxLat":49.26273,"countLon":1},{"rooms_shortname":"LSC","minLon":-123.24494,"avgLon":-123.24,"maxLat":49.26236,"countLon":1},{"rooms_shortname":"PHRM","minLon":-123.24342,"avgLon":-123.24,"maxLat":49.26229,"countLon":1},{"rooms_shortname":"CHBE","minLon":-123.24718,"avgLon":-123.25,"maxLat":49.26228,"countLon":1},{"rooms_shortname":"EOSM","minLon":-123.25198,"avgLon":-123.25,"maxLat":49.26228,"countLon":1},{"rooms_shortname":"FORW","minLon":-123.25179,"avgLon":-123.25,"maxLat":49.26176,"countLon":1},{"rooms_shortname":"MCLD","minLon":-123.24935,"avgLon":-123.25,"maxLat":49.26176,"countLon":1},{"rooms_shortname":"DMP","minLon":-123.24807,"avgLon":-123.25,"maxLat":49.26125,"countLon":1},{"rooms_shortname":"MCML","minLon":-123.25027,"avgLon":-123.25,"maxLat":49.26114,"countLon":1},{"rooms_shortname":"ORCH","minLon":-123.24944,"avgLon":-123.25,"maxLat":49.26048,"countLon":1},{"rooms_shortname":"OSBO","minLon":-123.24467,"avgLon":-123.24,"maxLat":49.26047,"countLon":1},{"rooms_shortname":"FSC","minLon":-123.24886,"avgLon":-123.25,"maxLat":49.26044,"countLon":1}]}
+

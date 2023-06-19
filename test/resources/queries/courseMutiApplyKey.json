@@ -1,0 +1,101 @@
+{
+  "title": "courses with TRANS and ORDER, but applyKey has '_'",
+  "input": {
+	  "WHERE": {
+		  "AND": [
+			  {
+				  "GT": {
+					  "courses_avg": 95
+				  }
+			  },
+			  {
+				  "IS": {
+					  "courses_dept": "*c*"
+				  }
+			  }
+		  ]
+	  },
+	  "OPTIONS": {
+		  "COLUMNS": [
+			  "courses_title",
+			  "overallAvg",
+			  "maxAvg"
+		  ],
+		  "ORDER": {
+			  "dir": "DOWN",
+			  "keys": [
+				  "overallAvg"
+			  ]
+		  }
+	  },
+	  "TRANSFORMATIONS": {
+		  "GROUP": [
+			  "courses_title"
+		  ],
+		  "APPLY": [
+			  {
+				  "overallAvg": {
+					  "AVG": "courses_avg"
+				  }
+			  },
+			  {
+				  "maxAvg": {
+					  "MAX": "courses_avg"
+				  }
+			  }
+		  ]
+	  }
+  },
+  "errorExpected": false,
+
+  "expected": [{"courses_title":"multimedia sys",
+	  "overallAvg":98.75,"maxAvg": 98.75},
+	  {"courses_title":"career planning",
+		  "overallAvg":98.04,"maxAvg": 99.19},
+	  {"courses_title":"thesis",
+		  "overallAvg":96.63,"maxAvg": 98},
+	  {"courses_title":"ubc chamb string",
+		  "overallAvg":96.5,"maxAvg": 96.5},
+	  {"courses_title":"masters thesis",
+		  "overallAvg":96.5,"maxAvg": 97},
+	  {"courses_title":"res mthd in educ",
+		  "overallAvg":96.33,"maxAvg": 97.5},
+	  {"courses_title":"dynam struct 2",
+		  "overallAvg":96.27,"maxAvg": 96.27},
+	  {"courses_title":"prgm devl cnsl",
+		  "overallAvg":96.16,"maxAvg": 96.33},
+	  {"courses_title":"ms thesis",
+		  "overallAvg":96,"maxAvg": 96},
+	  {"courses_title":"health psych",
+		  "overallAvg":96,"maxAvg": 96},
+	  {"courses_title":"schl counselling",
+		  "overallAvg":95.78,"maxAvg": 95.78},
+	  {"courses_title":"eth & prof clin",
+		  "overallAvg":95.75,"maxAvg": 95.75},
+	  {"courses_title":"eng mtls lab",
+		  "overallAvg":95.73,"maxAvg": 96},
+	  {"courses_title":"prep writ career",
+		  "overallAvg":95.7,"maxAvg": 95.7},
+	  {"courses_title":"indig, tech&ed",
+		  "overallAvg":95.63,"maxAvg": 96.47},
+	  {"courses_title":"ds tec ii sc c&p",
+		  "overallAvg":95.58,"maxAvg": 95.58},
+	  {"courses_title":"tech math sci",
+		  "overallAvg":95.58,"maxAvg": 95.96},
+	  {"courses_title":"thermodynamics",
+		  "overallAvg":95.54,"maxAvg": 95.54},
+	  {"courses_title":"orch repertoire",
+		  "overallAvg":95.53,"maxAvg": 95.67},
+	  {"courses_title":"curric issu",
+		  "overallAvg":95.48,"maxAvg": 95.63},
+	  {"courses_title":"counsl adolescnt",
+		  "overallAvg":95.36,"maxAvg": 95.36},
+	  {"courses_title":"",
+		  "overallAvg":95.36,"maxAvg": 95.36},
+	  {"courses_title":"math operations",
+		  "overallAvg":95.31,"maxAvg": 95.31},
+	  {"courses_title":"intro psychthrpy",
+		  "overallAvg":95.25,"maxAvg": 95.25}
+  ]
+}
+

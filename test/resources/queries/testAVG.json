@@ -1,0 +1,78 @@
+{
+  "title": "test AVG",
+  "input": {
+	  "WHERE": {
+		  "AND": [
+			  {
+				  "IS": {
+					  "courses_dept": "cpsc"
+				  }
+			  },
+			  {
+				  "GT": {
+					  "courses_fail": 7
+				  }
+			  },
+			  {
+				  "GT": {
+					  "courses_year": 2014
+				  }
+			  }
+		  ]
+	  },
+	  "OPTIONS": {
+		  "COLUMNS": [
+			  "courses_instructor",
+			  "minAvg",
+			  "overallAvg"
+		  ]
+	  },
+	  "TRANSFORMATIONS": {
+		  "GROUP": [
+			  "courses_dept",
+			  "courses_instructor"
+		  ],
+		  "APPLY": [
+			  {
+				  "minAvg": {
+					  "MIN": "courses_avg"
+				  }
+			  },
+			  {
+				  "overallAvg": {
+					  "AVG": "courses_avg"
+				  }
+			  }
+		  ]
+	  }
+  },
+  "errorExpected": false,
+
+  "expected":  [{"courses_instructor":"wolfman, steven","minAvg":74.79,
+	  "overallAvg":74.79},
+	  {"courses_instructor":"kiczales, gregor","minAvg":70.78,
+		  "overallAvg":70.78},
+	  {"courses_instructor":"berg, celina","minAvg":70.38,
+		  "overallAvg":72.72},
+	  {"courses_instructor":"aiello, william","minAvg":71.14,
+		  "overallAvg":71.14},
+	  {"courses_instructor":"little, james joseph","minAvg":70.47,
+		  "overallAvg":70.47},
+	  {"courses_instructor":"belleville, patrice","minAvg":71.45,"overallAvg":73.76},
+	  {"courses_instructor":"gao, xi","minAvg":72.03,"overallAvg":72.03},
+	  {"courses_instructor":"hutchinson, norman","minAvg":70.7,"overallAvg":70.7},
+	  {"courses_instructor":"baniassad, elisa","minAvg":74.17,"overallAvg":74.17},
+	  {"courses_instructor":"carter, paul martin","minAvg":70.27,"overallAvg":72.52},
+	  {"courses_instructor":"feeley, michael","minAvg":71.89,"overallAvg":73.57},
+	  {"courses_instructor":"","minAvg":74.73,"overallAvg":74.73},
+	  {"courses_instructor":"hu, alan","minAvg":73.59,"overallAvg":73.87},
+	  {"courses_instructor":"evans, william","minAvg":74.04,"overallAvg":74.04},
+	  {"courses_instructor":"kotthoff, lars","minAvg":72.53,"overallAvg":72.53},
+	  {"courses_instructor":"khosravi, hassan","minAvg":72.4,"overallAvg":72.4},
+	  {"courses_instructor":"acton, donald","minAvg":71.72,"overallAvg":71.95},
+	  {"courses_instructor":"munzner, tamara","minAvg":76.46,"overallAvg":76.46},
+	  {"courses_instructor":"manuch, jan","minAvg":68.33,"overallAvg":70.73},
+	  {"courses_instructor":"conati, cristina","minAvg":73.55,"overallAvg":73.55}
+]
+}
+

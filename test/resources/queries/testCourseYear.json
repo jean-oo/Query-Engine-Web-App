@@ -1,0 +1,19 @@
+{
+  "title": "valid query",
+  "input": {
+    "WHERE": {
+      "GT": {
+        "courses_year": 2021
+      }
+    },
+    "OPTIONS": {
+      "COLUMNS": [
+        "courses_dept",
+        "courses_avg"
+      ],
+      "ORDER": "courses_avg"
+    }
+  },
+  "errorExpected": false,
+  "expected": []
+}

@@ -1,0 +1,79 @@
+{
+  "title": "courses with TRANS and ORDER, multi group keys",
+  "input": {
+	  "WHERE": {
+		  "AND": [
+			  {
+				  "GT": {
+					  "courses_avg": 96
+				  }
+			  },
+			  {
+				  "IS": {
+					  "courses_dept": "*c*"
+				  }
+			  }
+		  ]
+	  },
+	  "OPTIONS": {
+		  "COLUMNS": [
+			  "courses_title",
+			  "overallAvg",
+			  "maxAvg",
+			  "courses_dept"
+		  ],
+		  "ORDER": {
+			  "dir": "DOWN",
+			  "keys": [
+				  "overallAvg",
+				  "courses_dept"
+			  ]
+		  }
+	  },
+	  "TRANSFORMATIONS": {
+		  "GROUP": [
+			  "courses_title",
+			  "courses_dept"
+		  ],
+		  "APPLY": [
+			  {
+				  "overallAvg": {
+					  "AVG": "courses_avg"
+				  }
+			  },
+			  {
+				  "maxAvg": {
+					  "MAX": "courses_avg"
+				  }
+			  },
+			  {
+				  "afterCount": {
+					  "COUNT": "courses_avg"
+				  }
+			  }
+		  ]
+	  }
+  },
+  "errorExpected": false,
+
+  "expected":  [{"courses_title":"multimedia sys",
+	  "overallAvg":98.75,"maxAvg": 98.75,"courses_dept":"eece"},
+	  {"courses_title":"career planning",
+		  "overallAvg":98.04,"maxAvg": 99.19,"courses_dept":"cnps"},
+	  {"courses_title":"thesis",
+		  "overallAvg":97.67,"maxAvg": 98,"courses_dept":"crwr"},
+	  {"courses_title":"res mthd in educ",
+		  "overallAvg":97.5,"maxAvg": 97.5,"courses_dept":"educ"},
+	  {"courses_title":"masters thesis",
+		  "overallAvg":97,"maxAvg": 97,"courses_dept":"psyc"},
+	  {"courses_title":"ubc chamb string",
+		  "overallAvg":96.5,"maxAvg": 96.5,"courses_dept":"musc"},
+	  {"courses_title":"indig, tech&ed",
+		  "overallAvg":96.47,"maxAvg": 96.47,"courses_dept":"etec"},
+	  {"courses_title":"dynam struct 2",
+		  "overallAvg":96.27,"maxAvg": 96.27,"courses_dept":"civl"},
+	  {"courses_title":"prgm devl cnsl",
+		  "overallAvg":96.25,"maxAvg": 96.33,"courses_dept":"cnps"}
+  ]
+}
+

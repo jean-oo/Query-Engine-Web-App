@@ -1,0 +1,68 @@
+{
+  "title": "test AVG,MIN,MAX,COUNT, ORDER",
+  "input": {
+	  "WHERE": {
+		  "AND": [
+			  {
+				  "GT": {
+					  "courses_fail": 3
+				  }
+			  },
+			  {
+				  "GT": {
+					  "courses_year": 2014
+				  }
+			  }
+		  ]
+	  },
+	  "OPTIONS": {
+		  "COLUMNS": [
+			  "courses_dept",
+			  "minAvg",
+			  "overallAvg",
+			  "maxAvg",
+			  "countAvg"
+		  ],
+		  "ORDER": {
+			  "dir": "DOWN",
+			  "keys": [
+				  "maxAvg",
+				  "countAvg"
+
+			  ]
+		  }
+	  },
+	  "TRANSFORMATIONS": {
+		  "GROUP": [
+			  "courses_dept"
+		  ],
+		  "APPLY": [
+			  {
+				  "minAvg": {
+					  "MIN": "courses_avg"
+				  }
+			  },
+			  {
+				  "overallAvg": {
+					  "AVG": "courses_avg"
+				  }
+			  },
+			  {
+				  "maxAvg": {
+					  "MAX": "courses_avg"
+				  }
+			  },
+			  {
+				  "countAvg": {
+					  "COUNT": "courses_avg"
+				  }
+			  }
+		  ]
+	  }
+  },
+  "errorExpected": false,
+
+  "expected":  [{"courses_dept":"frst","minAvg":64.74,"overallAvg":72.81,"maxAvg":83.93,"countAvg":12},{"courses_dept":"biol","minAvg":66.21,"overallAvg":73.5,"maxAvg":83.68,"countAvg":42},{"courses_dept":"cpsc","minAvg":68.33,"overallAvg":73.05,"maxAvg":82.63,"countAvg":39},{"courses_dept":"crwr","minAvg":72.31,"overallAvg":76.68,"maxAvg":82.1,"countAvg":11},{"courses_dept":"phil","minAvg":66.19,"overallAvg":72.52,"maxAvg":81.56,"countAvg":6},{"courses_dept":"cpen","minAvg":69.41,"overallAvg":74.44,"maxAvg":81.44,"countAvg":4},{"courses_dept":"chem","minAvg":56.2,"overallAvg":69.17,"maxAvg":81.25,"countAvg":65},{"courses_dept":"mech","minAvg":68.22,"overallAvg":71.83,"maxAvg":80.36,"countAvg":16},{"courses_dept":"grsj","minAvg":75.29,"overallAvg":77.81,"maxAvg":80.33,"countAvg":2},{"courses_dept":"apsc","minAvg":67.25,"overallAvg":74.53,"maxAvg":80.28,"countAvg":14},{"courses_dept":"ling","minAvg":68.85,"overallAvg":74.29,"maxAvg":80.27,"countAvg":6},{"courses_dept":"fnis","minAvg":80.1,"overallAvg":80.1,"maxAvg":80.1,"countAvg":1},{"courses_dept":"cons","minAvg":69.83,"overallAvg":73.6,"maxAvg":79.87,"countAvg":5},{"courses_dept":"phys","minAvg":67.37,"overallAvg":72.88,"maxAvg":79.71,"countAvg":34},{"courses_dept":"musc","minAvg":71.68,"overallAvg":75.79,"maxAvg":79.52,"countAvg":4},{"courses_dept":"math","minAvg":56.26,"overallAvg":67.48,"maxAvg":78.93,"countAvg":166},{"courses_dept":"comm","minAvg":68.01,"overallAvg":73.31,"maxAvg":78.33,"countAvg":39},{"courses_dept":"busi","minAvg":52.44,"overallAvg":67.58,"maxAvg":78.15,"countAvg":49},{"courses_dept":"kin","minAvg":63.4,"overallAvg":69.65,"maxAvg":77.85,"countAvg":10},{"courses_dept":"eosc","minAvg":71.11,"overallAvg":74.08,"maxAvg":77.32,"countAvg":25},{"courses_dept":"econ","minAvg":63.13,"overallAvg":70.29,"maxAvg":76.94,"countAvg":47},{"courses_dept":"micb","minAvg":74.07,"overallAvg":75.28,"maxAvg":76.91,"countAvg":6},{"courses_dept":"latn","minAvg":69.67,"overallAvg":73.25,"maxAvg":76.82,"countAvg":2},{"courses_dept":"lfs","minAvg":69.96,"overallAvg":72.84,"maxAvg":76.8,"countAvg":5},{"courses_dept":"hist","minAvg":67.53,"overallAvg":71.81,"maxAvg":76.67,"countAvg":13},{"courses_dept":"relg","minAvg":69.88,"overallAvg":73.19,"maxAvg":76.5,"countAvg":2},{"courses_dept":"chbe","minAvg":67.5,"overallAvg":72.39,"maxAvg":76.35,"countAvg":11},{"courses_dept":"civl","minAvg":70.65,"overallAvg":73.38,"maxAvg":76.08,"countAvg":7},{"courses_dept":"bioc","minAvg":65.72,"overallAvg":70.65,"maxAvg":75.79,"countAvg":8},{"courses_dept":"arth","minAvg":69.71,"overallAvg":73.01,"maxAvg":75.76,"countAvg":7},{"courses_dept":"geog","minAvg":66,"overallAvg":70.07,"maxAvg":75.63,"countAvg":15},{"courses_dept":"fnh","minAvg":74.98,"overallAvg":75.31,"maxAvg":75.63,"countAvg":5},{"courses_dept":"poli","minAvg":54.01,"overallAvg":68.83,"maxAvg":75.58,"countAvg":23},{"courses_dept":"clst","minAvg":66.91,"overallAvg":72.23,"maxAvg":75.18,"countAvg":7},{"courses_dept":"geob","minAvg":68.31,"overallAvg":70.89,"maxAvg":75.13,"countAvg":4},{"courses_dept":"astr","minAvg":63.14,"overallAvg":69.73,"maxAvg":74.96,"countAvg":5},{"courses_dept":"caps","minAvg":69.65,"overallAvg":71.35,"maxAvg":74.7,"countAvg":3},{"courses_dept":"nest","minAvg":74.4,"overallAvg":74.4,"maxAvg":74.4,"countAvg":1},{"courses_dept":"psyc","minAvg":58.94,"overallAvg":68.94,"maxAvg":74.36,"countAvg":56},{"courses_dept":"visa","minAvg":69.06,"overallAvg":71.34,"maxAvg":74.29,"countAvg":5},{"courses_dept":"elec","minAvg":61.58,"overallAvg":67.82,"maxAvg":74.27,"countAvg":20},{"courses_dept":"fist","minAvg":71.48,"overallAvg":72.62,"maxAvg":73.76,"countAvg":2},{"courses_dept":"asia","minAvg":57.33,"overallAvg":66.91,"maxAvg":73.64,"countAvg":8},{"courses_dept":"soci","minAvg":70.12,"overallAvg":71.99,"maxAvg":73.47,"countAvg":3},{"courses_dept":"sowk","minAvg":73.36,"overallAvg":73.36,"maxAvg":73.36,"countAvg":1},{"courses_dept":"fren","minAvg":69.11,"overallAvg":70.73,"maxAvg":73.23,"countAvg":3},{"courses_dept":"stat","minAvg":60.6,"overallAvg":70.43,"maxAvg":73.17,"countAvg":13},{"courses_dept":"engl","minAvg":64.73,"overallAvg":69.69,"maxAvg":72.23,"countAvg":10},{"courses_dept":"fmst","minAvg":68.63,"overallAvg":70.26,"maxAvg":72.13,"countAvg":9},{"courses_dept":"span","minAvg":65.71,"overallAvg":69.83,"maxAvg":72.12,"countAvg":3},{"courses_dept":"anth","minAvg":60.05,"overallAvg":67.99,"maxAvg":71.86,"countAvg":5},{"courses_dept":"audi","minAvg":70.96,"overallAvg":70.96,"maxAvg":70.96,"countAvg":1},{"courses_dept":"cogs","minAvg":70.53,"overallAvg":70.67,"maxAvg":70.8,"countAvg":2},{"courses_dept":"fipr","minAvg":70.3,"overallAvg":70.3,"maxAvg":70.3,"countAvg":1},{"courses_dept":"arcl","minAvg":66.85,"overallAvg":68.48,"maxAvg":70.11,"countAvg":2},{"courses_dept":"scie","minAvg":69.7,"overallAvg":69.7,"maxAvg":69.7,"countAvg":1},{"courses_dept":"japn","minAvg":55.27,"overallAvg":63.71,"maxAvg":68.75,"countAvg":4},{"courses_dept":"mtrl","minAvg":59.98,"overallAvg":65.4,"maxAvg":67.98,"countAvg":6},{"courses_dept":"wrds","minAvg":59.44,"overallAvg":64.43,"maxAvg":67.78,"countAvg":5},{"courses_dept":"apbi","minAvg":66.57,"overallAvg":66.85,"maxAvg":67.13,"countAvg":2},{"courses_dept":"astu","minAvg":64.75,"overallAvg":65.28,"maxAvg":65.8,"countAvg":2},{"courses_dept":"lled","minAvg":47.29,"overallAvg":54.78,"maxAvg":60.28,"countAvg":10},{"courses_dept":"educ","minAvg":39.03,"overallAvg":39.03,"maxAvg":39.03,"countAvg":1}
+]
+}
+
